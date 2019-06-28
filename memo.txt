@@ -1,0 +1,4 @@
+漫画
+https://books.rakuten.co.jp/event/book/comic/calendar/2019/06/js/booklist.json
+小説
+https://books.rakuten.co.jp/event/book/pocket-book/calendar/js/booklist.json
