@@ -7,6 +7,7 @@ module Api
   module V1
     class Api::V1::InsertController < ApplicationController
       protect_from_forgery :except => [:index]
+      include Common
       def index
         begin
           $GENRE_LIST = {0 => "comic", 1 => "pocket-book"}
@@ -32,7 +33,6 @@ module Api
             ym = p_year.to_s + "/" + p_month.to_s + "/"
           end
           api_url = URI.escape("https://books.rakuten.co.jp/event/book/" + $GENRE_LIST[genre.to_i] + "/calendar/" + ym.to_s + "js/booklist.json")
-          
           logger.debug(api_url)
           
           uri = URI.parse(api_url)
@@ -44,43 +44,48 @@ module Api
           json_data = JSON.load(res.body.force_encoding("UTF-8").gsub(/\xEF\xBB\xBF|\xEF\xBF\xBE/,""))
           json_data["list"].each do | book_data |
             #発売日をDate型に変換
-            decision_flg = 1
-            target_date = book_data[20]
-            if p_year.present? then
-              target_date = p_year.to_s + "年" + target_date
-            else
-              month, other = target_date.split('月')
-              now = Date.today
-              year = now.year
-              if now.month > month.to_i then
-                year = year + 1
-              end
-              other = other.gsub("日", "")
-              if other =~ /^[0-9]+$/ then
-                target_date = year.to_s + "年" + target_date
-              else
-                target_day = ""
-                decision_flg = 0
-                case other
-                when "上旬" then
-                  target_day = "1日"
-                when "中旬" then
-                  target_day = "15日"
-                else
-                  target_day = Date.new(year.to_i, month.to_i, -1).day.to_s + "日"
-                end
-                target_date = year.to_s + "年" + month.to_s + "月" + target_day.to_s
-              end
-            end
-            release_day = Date.strptime(target_date, '%Y年%m月%d日')
+            release_day, decision_flg = getDateByJson(p_year, book_data[20])
+            logger.debug(book_data[5] + release_day.to_s + decision_flg.to_s)
 #            insert_data << list.new(isbn:book_data[3], title:book_data[5], auther:book_data[7], label_name:book_data[10], \
 #                                    label_id:book_data[14], release_date:release_day, decision_flg:decision_flg)
-            logger.debug(book_data[5] + target_date)
           end
           render status: 200, json: { status: 0, message: "success" }
         rescue=>e
           logger.debug(e.message)
         end
+      end
+
+      def getDateByJson(p_year, target_date)
+        #発売日をDate型に変換
+        decision_flg = 1
+        if p_year.present? then
+          target_date = p_year.to_s + "年" + target_date
+        else
+          month, other = target_date.split('月')
+          now = Date.today
+          year = now.year
+          if now.month > month.to_i then
+            year = year + 1
+          end
+          other = other.gsub("日", "")
+          if other =~ /^[0-9]+$/ then
+            target_date = year.to_s + "年" + target_date
+          else
+            target_day = ""
+            decision_flg = 0
+            case other
+            when "上旬" then
+              target_day = "1日"
+            when "中旬" then
+              target_day = "15日"
+            else
+              target_day = Date.new(year.to_i, month.to_i, -1).day.to_s + "日"
+            end
+            target_date = year.to_s + "年" + month.to_s + "月" + target_day.to_s
+          end
+        end
+        release_day = Date.strptime(target_date, '%Y年%m月%d日')
+        return release_day, decision_flg
       end
     end
   end
