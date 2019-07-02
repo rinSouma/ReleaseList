@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190628090432) do
+ActiveRecord::Schema.define(version: 20190702043505) do
 
   create_table "lists", force: :cascade do |t|
     t.string "isbn"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20190628090432) do
     t.date "release_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "decision_flg"
   end
 
 end

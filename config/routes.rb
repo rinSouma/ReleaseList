@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   namespace :api, {format: 'json'} do
     namespace :v1 do
       namespace :insert do
-        get "/" , :action => "index"
+        post "/" , :action => "index"
       end
     end
   end
