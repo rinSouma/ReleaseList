@@ -1,24 +1,23 @@
-# README
+# 本の発売日を管理するリストを作りたいやつ
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## やりたいこと
 
-Things you may want to cover:
+1. 一覧表示(月別・ジャンル別)
 
-* Ruby version
+1. 一覧からTrelloへ購入予定本を登録する
 
-* System dependencies
+1. 作者・書名など事前に登録したキーワードに当たった本を強調表示
 
-* Configuration
+1. レーベル絞り込み機能
 
-* Database creation
+1. 書籍一覧からネットショップへリンク
 
-* Database initialization
+1. 書影とかもできれば出したい
 
-* How to run the test suite
+1. データ登録時に事前に登録したキーワードに当たった本があればメール通知？
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## 環境メモ
 
-* ...
+* SQLite 3.24+
+
