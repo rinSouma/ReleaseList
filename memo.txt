@@ -3,11 +3,4 @@ https://books.rakuten.co.jp/event/book/comic/calendar/2019/06/js/booklist.json
 小説
 https://books.rakuten.co.jp/event/book/pocket-book/calendar/js/booklist.json
 
-          logger.debug("\n\n\n\n----------------------------------------------------------------------------------------\n")
-          File.open("test.txt","w") do | temp |
-            temp.print(res.body.force_encoding("UTF-8").gsub(/\xEF\xBB\xBF|\xEF\xBF\xBE/,""))
-          end
-          File.open("test.txt") do |file|
-            hash = JSON.load(file)
-            p hash
-          end
+curl -XPOST -d 'genre=0' http://localhost:3000/api/v1/insert

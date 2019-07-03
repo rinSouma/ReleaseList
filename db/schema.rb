@@ -10,18 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190702043505) do
+ActiveRecord::Schema.define(version: 20190628090432) do
 
-  create_table "lists", force: :cascade do |t|
+  create_table "lists", id: :string, force: :cascade do |t|
     t.string "isbn"
     t.string "title"
     t.string "auther"
     t.string "label_name"
     t.integer "label_id"
     t.date "release_date"
+    t.integer "decision_flg"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "decision_flg"
+    t.index ["id"], name: "sqlite_autoindex_lists_1", unique: true
   end
 
 end
