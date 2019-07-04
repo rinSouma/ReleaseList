@@ -1,0 +1,15 @@
+<html>
+<head>
+<script type="text/javascript">
+window.onload = function() {
+  document.getElementById("token").value = location.hash
+  document.form1.method = "post";
+  document.form1.submit();
+};
+</script>
+<body>
+<form name="form1"  action="./login" method="post">
+    <input type="hidden" name="token" id="token" value="" />
+</form>
+</body>
+</html>

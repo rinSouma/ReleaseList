@@ -4,3 +4,6 @@ https://books.rakuten.co.jp/event/book/comic/calendar/2019/06/js/booklist.json
 https://books.rakuten.co.jp/event/book/pocket-book/calendar/js/booklist.json
 
 curl -XPOST -d 'genre=0' http://localhost:3000/api/v1/insert
+
+
+https://trello.com/1/authorize?expiration=never&name=ReleaseList&scope=read,write&response_type=token&return_url=http://localhost/test/test.cgi&key={YourAPIKey}
