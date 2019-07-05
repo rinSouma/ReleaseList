@@ -9,7 +9,8 @@ class LoginController < ApplicationController
     end
    
     def create
-        puts "test"
-        puts params[:token]
+        _, token = params[:token].split("=")
+        session[:token] = token
+        redirect_to root_path
     end
 end
