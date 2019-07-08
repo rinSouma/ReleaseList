@@ -3,6 +3,10 @@ require "date"
 class HomeController < ApplicationController
     include Trello
     def index
+
+        test = Trello_API.new(session[:token], ENV['TRELLO_API_KEY'])
+        @board = test.get_boards
+
         @genre_data = {"漫画" => 0, "小説" => 1}
         @genre_key = params[:genre]
         @genre_key = 0 if @genre_key.blank?

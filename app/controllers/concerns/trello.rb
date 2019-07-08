@@ -8,20 +8,36 @@ module Trello
         attr_accessor :name, :desc, :pos, :due, :due_complete, :id_list, :id_labels
 
         def initialize(token, api_key)
-            @token = token
-            @api_key = api_key
+            @token = token.to_s
+            @api_key = api_key.to_s
         end
 
+		#ユーザ情報の取得
+		def get_user
+			res = run_api("https://trello.com/1/tokens/" + @token + "?key=" + @api_key)
+			puts res.code
+			if res.code.to_s == "200" then
+				return JSON.load(res.body)
+			end
+			return nil
+		end
 	    #ユーザIDの取得
-	    def get_user_id
-	        res = run_api("https://trello.com/1/tokens/" + @token + "?key=" + @api_key)
-	        json_data = JSON.load(res.body)
-	        return json_data["idMember"]
+		def get_user_id
+			json_data = get_user
+			if json_data.present? then
+				return json_data["idMember"]
+			end
+			return nil
 	    end
-	    #ボード一覧の取得
+
+		#ボード一覧の取得
 	    def get_boards
-	        user_id = get_user_id
+			user_id = get_user_id.to_s
 	        res = run_api("https://trello.com/1/members/" + user_id +  "/boards?token=" + @token + "&key=" + @api_key)
+			puts res.code
+			if res.code.to_s != "200" then
+				return nil
+			end
 	        json_data = JSON.load(res.body)
 	        board_list = []
 	        json_data.each do | board_data |
@@ -35,6 +51,10 @@ module Trello
 	    #リスト一覧の取得
 	    def get_lists(board_id)
 	        res = run_api("https://trello.com/1/boards/" + board_id.to_s +  "/lists?token=" + @token + "&key=" + @api_key)
+			puts res.code
+			if res.code.to_s != "200" then
+				return nil
+			end
 	        json_data = JSON.load(res.body)
 	        list_list = []
 	        json_data.each do | list_data |
@@ -48,6 +68,10 @@ module Trello
 	    #ラベル一覧の取得
 	    def get_labels(board_id)
 	        res = run_api("https://trello.com/1/boards/" + board_id.to_s +  "/labels?token=" + @token + "&key=" + @api_key)
+			puts res.code
+			if res.code.to_s != "200" then
+				return nil
+			end
 	        json_data = JSON.load(res.body)
 	        label_list = []
 	        json_data.each do | label_data |
@@ -65,6 +89,10 @@ module Trello
                         'idList' => @id_list.to_s, 'idLabels' => @id_labels.to_s, \
                         'token' => @token, 'key' =>  @api_key}
             res = run_api("https://api.trello.com/1/cards", params)
+			if res.code.to_s == "200" then
+				return true
+			end
+			return false
 	    end
 	
 	    private
