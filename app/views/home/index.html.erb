@@ -1,24 +1,11 @@
-<% @board.each do |test| %>
-    <%= test[:id] %>
-    ：
-    <%= test[:name] %>
+<%= form_tag('',enforce_utf8: false, method:'get', remote: 'true', class:"sort_form") do %>
+    <%= select_tag('year', options_for_select(@year_data, @year_key), class: "sort_list", onchange: "this.form.submit();") %>
+    <%= select_tag('month', options_for_select(@month_data, @month_key), class: "sort_list", onchange: "this.form.submit();") %>
+<% end %>
+
+<% @lists.each do |test| %>
+    <%= test[:title] %>
+    :
+    <%= test[:release_date] %>
     <br>
-<% end %>
-<hr>
-<% @list.each do |list_data| %>
-    <% list_data.each do |test| %>
-        <%= test[:id] %>
-        ：
-        <%= test[:name] %>
-        <br>
-    <% end %>
-<% end %>
-<hr>
-<% @label.each do |label_data| %>
-    <% label_data.each do |test| %>
-        <%= test[:id] %>
-        ：
-        <%= test[:name] %>
-        <br>
-    <% end %>
 <% end %>

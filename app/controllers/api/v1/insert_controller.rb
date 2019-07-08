@@ -30,7 +30,7 @@ module Api
           insert_data = []
           ym = ""
           if p_year.present? then
-            ym = p_year.to_s + "/" + p_month.to_s + "/"
+            ym = p_year.to_s + "/" +  format("%02d", p_month).to_s + "/"
           end
           api_url = URI.escape("https://books.rakuten.co.jp/event/book/" + $GENRE_LIST[genre.to_i] + "/calendar/" + ym.to_s + "js/booklist.json")
           logger.debug(api_url)
@@ -41,6 +41,7 @@ module Api
           res = https.start {
             https.get(uri.request_uri)
           }
+          logger.debug(res.body)
           json_data = JSON.load(res.body.force_encoding("UTF-8").gsub(/\xEF\xBB\xBF|\xEF\xBF\xBE/,""))
           json_data["list"].each do | book_data |
             #発売日をDate型に変換
