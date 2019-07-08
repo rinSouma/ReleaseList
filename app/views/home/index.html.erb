@@ -1,4 +1,5 @@
 <%= form_tag('',enforce_utf8: false, method:'get', remote: 'true', class:"sort_form") do %>
+    <%= select_tag('genre', options_for_select(@genre_data, @genre_key), class: "sort_list", onchange: "this.form.submit();") %>
     <%= select_tag('year', options_for_select(@year_data, @year_key), class: "sort_list", onchange: "this.form.submit();") %>
     <%= select_tag('month', options_for_select(@month_data, @month_key), class: "sort_list", onchange: "this.form.submit();") %>
 <% end %>

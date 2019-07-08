@@ -48,8 +48,8 @@ module Api
             release_day, decision_flg = getDateByJson(p_year, book_data[20])
 
             logger.debug(book_data[5] + release_day.to_s + decision_flg.to_s)
-            insert_data << List.new(id:book_data[3], isbn:book_data[3], title:book_data[5], auther:book_data[7], label_name:book_data[10], \
-                                    label_id:book_data[14], release_date:release_day, decision_flg:decision_flg)
+            insert_data << List.new(id:book_data[3], genre:genre, isbn:book_data[3], title:book_data[5], auther:book_data[7], \
+                                    label_name:book_data[10], label_id:book_data[14], release_date:release_day, decision_flg:decision_flg)
           end
           logger.debug(insert_data)
           List.import insert_data, on_duplicate_key_update: [:title, :auther, :label_name, :label_id, :release_date, :decision_flg]

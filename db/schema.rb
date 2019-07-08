@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(version: 20190628090432) do
 
   create_table "lists", id: :string, force: :cascade do |t|
+    t.integer "genre"
     t.string "isbn"
     t.string "title"
     t.string "auther"

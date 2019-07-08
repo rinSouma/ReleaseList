@@ -1,6 +1,7 @@
 class CreateLists < ActiveRecord::Migration[5.1]
   def change
     create_table :lists, id: :string do |t|
+      t.integer :genre
       t.string :isbn
       t.string :title
       t.string :auther
