@@ -48,3 +48,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #insert_tool
 gem 'activerecord-import'
+
+#開発環境でhttpsしたい
+gem 'thin'

@@ -3,11 +3,16 @@ https://books.rakuten.co.jp/event/book/comic/calendar/2019/06/js/booklist.json
 小説
 https://books.rakuten.co.jp/event/book/pocket-book/calendar/js/booklist.json
 
+curl -XPOST -d 'genre=0' http://localhost:3000/api/v1/insert
 curl -XPOST -d 'genre=0&year=2019&month=6' http://localhost:3000/api/v1/insert
+curl -XPOST -d 'genre=1' http://localhost:3000/api/v1/insert
+curl -XPOST -d 'genre=1&year=2019&month=6' http://localhost:3000/api/v1/insert
 
 
 https://trello.com/1/authorize?expiration=never&name=ReleaseList&scope=read,write&response_type=token&return_url=http://localhost/test/test.cgi&key={YourAPIKey}    
 
+#開発環境起動
+thin --prefix /release_list --port 3001 start
 
 APIのキック
         test = Trello_API.new(session[:token], ENV['TRELLO_API_KEY'])
