@@ -1,4 +1,24 @@
-<% @data.each do |test| %>
+<% @board.each do |test| %>
     <%= test[:id] %>
+    ：
     <%= test[:name] %>
+    <br>
+<% end %>
+<hr>
+<% @list.each do |list_data| %>
+    <% list_data.each do |test| %>
+        <%= test[:id] %>
+        ：
+        <%= test[:name] %>
+        <br>
+    <% end %>
+<% end %>
+<hr>
+<% @label.each do |label_data| %>
+    <% label_data.each do |test| %>
+        <%= test[:id] %>
+        ：
+        <%= test[:name] %>
+        <br>
+    <% end %>
 <% end %>
