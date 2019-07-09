@@ -9,6 +9,19 @@
   </head>
 
   <body>
+    <div class="header">
+      <div class="app_logo">Release List</div>
+      <div class="login_area">
+        <% if @user.blank? %>
+        	<%= link_to "Trelloにログイン", login_path(), class:'submit_link link_button link' %>
+        <% else %>
+          <div class="user_area">ユーザ情報をここに出す</div>
+        <% end %>
+      </div>
+    </div>
     <%= yield %>
+    <div class="footer">
+      <div class="copyright">Release List © 2019 <a href="https://twitter.com/rin_souma">@rin_souma</a> </div>
+    </div>
   </body>
 </html>
