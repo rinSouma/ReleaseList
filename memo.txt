@@ -12,7 +12,7 @@ curl -XPOST -d 'genre=1&year=2019&month=6' http://localhost:3000/api/v1/insert
 https://trello.com/1/authorize?expiration=never&name=ReleaseList&scope=read,write&response_type=token&return_url=http://localhost/test/test.cgi&key={YourAPIKey}    
 
 #開発環境起動
-thin --prefix /release_list --port 3001 start
+thin --prefix /release_list --port 3001 --ssl start
 
 APIのキック
         test = Trello_API.new(session[:token], ENV['TRELLO_API_KEY'])
