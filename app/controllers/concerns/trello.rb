@@ -14,16 +14,22 @@ module Trello
 
 		#ユーザ情報の取得
 		def get_user
-			res = run_api("https://trello.com/1/tokens/" + @token + "?key=" + @api_key)
+			user_id = get_user_id.to_s
+	        res = run_api("https://trello.com/1/members/" + user_id +  "?token=" + @token + "&key=" + @api_key)
 			puts res.code
-			if res.code.to_s == "200" then
-				return JSON.load(res.body)
+			if res.code.to_s != "200" then
+				return nil
 			end
-			return nil
+			return JSON.load(res.body)
 		end
 	    #ユーザIDの取得
 		def get_user_id
-			json_data = get_user
+			res = run_api("https://trello.com/1/tokens/" + @token + "?key=" + @api_key)
+			puts res.code
+			if res.code.to_s != "200" then
+				return nil
+			end
+			json_data = JSON.load(res.body)
 			if json_data.present? then
 				return json_data["idMember"]
 			end
@@ -38,7 +44,7 @@ module Trello
 			if res.code.to_s != "200" then
 				return nil
 			end
-	        json_data = JSON.load(res.body)
+			json_data = JSON.load(res.body)
 	        board_list = []
 	        json_data.each do | board_data |
 	            if board_data["closed"].to_s == "false" then
