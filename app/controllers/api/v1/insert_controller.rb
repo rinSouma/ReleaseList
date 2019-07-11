@@ -63,7 +63,7 @@ module Api
         #発売日をDate型に変換
         decision_flg = 1
         if p_year.present? then
-          target_date = p_year.to_s + "年" + target_date
+          target_date, decision_flg = getDate(p_year, target_date)
         else
           month, other = target_date.split('月')
           now = Date.today
@@ -71,25 +71,30 @@ module Api
           if now.month > month.to_i then
             year = year + 1
           end
-          other = other.gsub("日", "")
-          if other =~ /^[0-9]+$/ then
-            target_date = year.to_s + "年" + target_date
-          else
-            target_day = ""
-            decision_flg = 0
-            case other
-            when "上旬" then
-              target_day = "1日"
-            when "中旬" then
-              target_day = "15日"
-            else
-              target_day = Date.new(year.to_i, month.to_i, -1).day.to_s + "日"
-            end
-            target_date = year.to_s + "年" + month.to_s + "月" + target_day.to_s
-          end
+          target_date, decision_flg = getDate(year, target_date)
         end
+        puts target_date
         release_day = Date.strptime(target_date, '%Y年%m月%d日')
         return release_day, decision_flg
+      end
+
+      def getDate(year, target_date)
+        month, other = target_date.split('月')
+        other = other.gsub("日", "")
+        if other =~ /^[0-9]+$/ then
+          return year.to_s + "年" + target_date, 1
+        else
+          target_day = ""
+          case other
+          when "上旬" then
+            target_day = "1日"
+          when "中旬" then
+            target_day = "15日"
+          else
+            target_day = Date.new(year.to_i, month.to_i, -1).day.to_s + "日"
+          end
+          return year.to_s + "年" + month.to_s + "月" + target_day.to_s, 0
+        end
       end
     end
   end
