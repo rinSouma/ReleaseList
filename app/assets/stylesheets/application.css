@@ -13,3 +13,94 @@
  *= require_tree .
  *= require_self
  */
+ html{
+	height: 100%;
+}
+body{
+/*	background-image: url(p_da0632_l_da06320.png); */
+	background-color: #0079bf;
+	height: 100%;
+	color: white;
+    font-size: 14px;
+    margin:0px;
+    padding:0px;
+}
+div{
+    margin:0px;
+    padding:0px;
+}
+a{
+    color: #FFFFFF;
+    display:block;
+    background-color: #4d95be;
+    border-radius: 6px;
+    padding:6px;
+    text-decoration: none;
+}
+a:link {
+}
+a:visited {
+}
+a:hover {
+    background-color: #66a4c7;
+}
+a:active {
+}
+
+div {
+	word-break: break-all;
+}
+
+.contents{
+    width:1000px;
+    margin: 0 auto;
+}
+
+.header{
+    position: sticky;
+    top:0;
+    height: 60px;
+    width:1000px;
+    background-color: #0067a3;
+    padding:10px 20px;
+}
+.app_logo{
+    width: 400px;
+    height: 60px;
+    display:inline-block;
+}
+.login_area{
+    float: right;
+    width: 600px;
+    height: 60px;
+    text-align: right;
+}
+.login_button{
+    position: absolute;
+    right: 20px;
+    width:140px;
+    text-align: center;
+}
+.icon_img{
+    height: 60px;
+    border-radius: 10px;
+}
+.user_name{
+    display: inline-block;
+    max-width:400px;
+    text-align: left;
+    margin-left: 10px;
+}
+.footer{
+    height: 14px;
+    width:1000px;
+    background-color: #0067a3;
+    padding:10px 20px;
+    text-align: center;
+    font-size: 12px;
+    margin-top:20px;
+}
+.footer a{
+    display: inline;
+    background-color: rgba(0,0,0,0);
+}

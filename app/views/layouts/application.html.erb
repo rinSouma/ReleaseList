@@ -9,21 +9,21 @@
   </head>
 
   <body>
-    <div class="header">
-      <div class="app_logo">Release List</div>
-      <div class="login_area">
-        <% if @user.blank? %>
-        	<%= link_to "Trelloにログイン", login_path(), class:'submit_link link_button link' %>
-        <% else %>
-          <div class="user_area">
-  					<%= image_tag(@user[:avatar], class: 'icon_img') %> <%= @user[:user_name] %>さん
-          </div>
-        <% end %>
+    <div class="contents">
+      <div class="header">
+        <div class="app_logo">Release List</div>
+        <div class="login_area">
+          <% if @user.blank? %>
+            <%= link_to "Trelloにログイン", login_path(), class:'login_button' %>
+          <% else %>
+            <%= image_tag(@user[:avatar], class: 'icon_img') %> <div class="user_name"><%= @user[:user_name] %>さん</div>
+          <% end %>
+        </div>
       </div>
-    </div>
-    <%= yield %>
-    <div class="footer">
-      <div class="copyright">Release List © 2019 <a href="https://twitter.com/rin_souma">@rin_souma</a> </div>
+      <%= yield %>
+      <div class="footer">
+        <div class="copyright">Release List © 2019 <a href="https://twitter.com/rin_souma">@rin_souma</a> </div>
+      </div>
     </div>
   </body>
 </html>
