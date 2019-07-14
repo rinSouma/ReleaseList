@@ -1,12 +1,54 @@
 <%= form_tag('',enforce_utf8: false, method:'get', remote: 'true', class:"sort_form") do %>
-    <%= select_tag('genre', options_for_select(@genre_data, @genre_key), class: "sort_list", onchange: "this.form.submit();") %>
-    <%= select_tag('year', options_for_select(@year_data, @year_key), class: "sort_list", onchange: "this.form.submit();") %>
-    <%= select_tag('month', options_for_select(@month_data, @month_key), class: "sort_list", onchange: "this.form.submit();") %>
+    <div class="select_area">
+        <%= select_tag('genre', options_for_select(@genre_data, @genre_key), \
+            class: "select_list", onchange: "this.form.submit();") %>
+        <%= select_tag('year', options_for_select(@year_data, @year_key), \
+            class: "select_list", onchange: "this.form.submit();") %>
+        <%= select_tag('month', options_for_select(@month_data, @month_key), \
+            class: "select_list", onchange: "this.form.submit();") %>
+    </div>
 <% end %>
-
-<% @lists.each do |test| %>
-    <%= test[:title] %>
-    :
-    <%= test[:release_date] %>
-    <br>
-<% end %>
+<div class="view_area">
+    <% break_key = "000" %>
+    <% index = 0 %>
+    <% @lists.each do |data| %>
+        <% key = format("%02d", data[:release_date].day).to_s + data[:decision_flg].to_s %> 
+        <% if key != break_key then%>
+            <div class="view_list days">
+                <% if data[:decision_flg] == 1 then %>
+                    <%= data[:release_date].day %>日
+                <% else %>
+                    <% if data[:release_date].day == 10 then %>
+                        上旬
+                    <% elsif data[:release_date].day == 20 then %>
+                        中旬
+                    <% else %>
+                        下旬
+                    <% end %>
+                <% end %>
+            </div>
+            <% break_key = key %>
+            <% index = 0 %>
+        <% end %>
+        <% if index % 2 == 0 then %>
+            <div class="view_list book1">
+        <% else %>
+            <div class="view_list book2">
+        <% end %>
+            <div class="book">
+                <div class="book_title">
+                    <%= data[:title] %>
+                </div>
+                <div class="book_auther">
+                    <%= data[:auther]%>
+                </div>
+            </div>
+            <% if @user.present? then %>
+                <div class="book_button">
+                    <%= link_to "Trelloに登録", login_path(), class:'entry_button' %>
+                </div>
+            <% end %>
+        </div>
+    <% index += 1 %>
+    <% end %>
+</div>

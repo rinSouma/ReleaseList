@@ -3,10 +3,10 @@ https://books.rakuten.co.jp/event/book/comic/calendar/2019/06/js/booklist.json
 小説
 https://books.rakuten.co.jp/event/book/pocket-book/calendar/js/booklist.json
 
-curl -XPOST -d 'genre=0' http://localhost:3001/release_list/api/v1/insert
-curl -XPOST -d 'genre=0&year=2019&month=6' http://localhost:3001/release_list/api/v1/insert
-curl -XPOST -d 'genre=1' http://localhost:3001/release_list/api/v1/insert
-curl -XPOST -d 'genre=1&year=2019&month=6' http://localhost:3001/release_list/api/v1/insert
+curl -XPOST -d 'genre=0' https://localhost:3001/release_list/api/v1/insert -k
+curl -XPOST -d 'genre=0&year=2019&month=6' https://localhost:3001/release_list/api/v1/insert -k
+curl -XPOST -d 'genre=1' https://localhost:3001/release_list/api/v1/insert -k
+curl -XPOST -d 'genre=1&year=2019&month=6' https://localhost:3001/release_list/api/v1/insert -k
 
 
 https://trello.com/1/authorize?expiration=never&name=ReleaseList&scope=read,write&response_type=token&return_url=http://localhost/test/test.cgi&key={YourAPIKey}    

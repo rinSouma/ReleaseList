@@ -59,7 +59,7 @@ div {
 .header{
     position: sticky;
     top:0;
-    height: 60px;
+    height: 40px;
     width:1000px;
     background-color: #0067a3;
     padding:10px 20px;
@@ -82,7 +82,7 @@ div {
     text-align: center;
 }
 .icon_img{
-    height: 60px;
+    height: 40px;
     border-radius: 10px;
 }
 .user_name{
@@ -93,14 +93,62 @@ div {
 }
 .footer{
     height: 14px;
-    width:1000px;
+    width: 100%;
     background-color: #0067a3;
     padding:10px 20px;
     text-align: center;
     font-size: 12px;
-    margin-top:20px;
 }
 .footer a{
     display: inline;
     background-color: rgba(0,0,0,0);
+}
+.select_area{
+    padding:10px 20px;
+    position: fixed;
+    height: 30px;
+    width: 1000px;
+    background-color:#0067a3;
+}
+.select_list{
+	margin-right:10px;
+	padding:4px 4px 6px 4px;
+	background-color:#FFFFFF;
+	color:#000000;
+	border:none;
+	border-radius: 6px;
+	width:80px;
+}
+.view_area{
+    margin-top:50px;
+    width:1040px;
+    padding-top:1px;
+    background-color: #66a4c7;
+}
+.view_list{
+    width: 1020px;
+    padding: 10px;
+    color: #000000;
+}
+.days{
+    background-color: #0067a3;
+    text-align: center;
+    font-weight: 800;
+    color: #FFFFFF;
+}
+.book{
+    display: inline-block;
+    width: 800px;
+}
+.book1{
+    background-color: #FFFFFF;
+}
+.book2{
+    background-color: #CCCCCC;
+}
+.book_button{
+    width:100px;
+    float: right;
+    text-align: center;
+    margin-top: 10px;
 }

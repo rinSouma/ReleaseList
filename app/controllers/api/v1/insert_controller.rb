@@ -87,9 +87,9 @@ module Api
           target_day = ""
           case other
           when "上旬" then
-            target_day = "1日"
+            target_day = "10日"
           when "中旬" then
-            target_day = "15日"
+            target_day = "20日"
           else
             target_day = Date.new(year.to_i, month.to_i, -1).day.to_s + "日"
           end
