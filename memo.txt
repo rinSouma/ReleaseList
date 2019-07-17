@@ -16,6 +16,9 @@ $env:TRELLO_API_KEY = "<APIキー>"
 $env:RAILS_RELATIVE_URL_ROOT = "/release_list"
 thin --prefix /release_list --port 3001 --ssl start
 
+gem uninstall -I eventmachine
+gem install eventmachine --platform ruby
+
 APIのキック
         test = Trello_API.new(session[:token], ENV['TRELLO_API_KEY'])
         test.name = "test_name "
