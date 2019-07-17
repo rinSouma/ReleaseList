@@ -51,3 +51,7 @@ gem 'activerecord-import'
 
 #開発環境でhttpsしたい
 gem 'thin'
+
+#Bootstrap入れたい
+gem 'jquery-rails'
+gem 'bootstrap', '~> 4.3.1'

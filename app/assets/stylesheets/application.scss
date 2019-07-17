@@ -10,9 +10,9 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
  */
+ @import "bootstrap";
+
  html{
 	height: 100%;
 }
@@ -38,13 +38,21 @@ a{
     text-decoration: none;
 }
 a:link {
+    color: #FFFFFF;
+    text-decoration: none;
 }
 a:visited {
+    color: #FFFFFF;
+    text-decoration: none;
 }
 a:hover {
     background-color: #66a4c7;
+    color: #FFFFFF;
+    text-decoration: none;
 }
 a:active {
+    color: #FFFFFF;
+    text-decoration: none;
 }
 
 div {
@@ -59,13 +67,14 @@ div {
 .header{
     position: sticky;
     top:0;
-    height: 40px;
+    height: auto;
     width:1000px;
+    overflow: hidden;
     background-color: #0067a3;
     padding:10px 20px;
 }
 .app_logo{
-    width: 400px;
+    width: 300px;
     height: 60px;
     display:inline-block;
 }
@@ -92,8 +101,9 @@ div {
     margin-left: 10px;
 }
 .footer{
-    height: 14px;
+    height: auto;
     width: 100%;
+    overflow: hidden;
     background-color: #0067a3;
     padding:10px 20px;
     text-align: center;
@@ -104,10 +114,11 @@ div {
     background-color: rgba(0,0,0,0);
 }
 .select_area{
-    padding:10px 20px;
+    padding:0px 20px 10px 20px;
     position: fixed;
-    height: 30px;
+    height: auto;
     width: 1000px;
+    overflow: hidden;
     background-color:#0067a3;
 }
 .select_list{
@@ -120,13 +131,13 @@ div {
 	width:80px;
 }
 .view_area{
-    margin-top:50px;
-    width:1040px;
+    margin-top:42px;
+    width:1000px;
     padding-top:1px;
     background-color: #66a4c7;
 }
 .view_list{
-    width: 1020px;
+    width: 1000px;
     padding: 10px;
     color: #000000;
 }
@@ -150,5 +161,5 @@ div {
     width:100px;
     float: right;
     text-align: center;
-    margin-top: 10px;
+    margin-top: 4px;
 }
