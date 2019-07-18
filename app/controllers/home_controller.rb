@@ -36,4 +36,8 @@ class HomeController < ApplicationController
                             :release_date=>now.beginning_of_month..now.end_of_month)\
                             .order(:release_date, {decision_flg: :desc})
     end
+
+    def input
+
+    end
 end

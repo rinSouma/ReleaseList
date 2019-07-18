@@ -45,10 +45,11 @@
             </div>
             <% if @user.present? then %>
                 <div class="book_button">
-                    <%= link_to "Trelloに登録", login_path(), class:'entry_button' %>
+                    <%= link_to "Trelloに登録", home_input_path, remote: true, class:'entry_button' %>
                 </div>
             <% end %>
         </div>
     <% index += 1 %>
     <% end %>
+    <div id="user-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
 </div>
