@@ -45,7 +45,7 @@
             </div>
             <% if @user.present? then %>
                 <div class="book_button">
-                    <%= link_to "Trelloに登録", home_input_path, remote: true, class:'entry_button' %>
+                    <%= link_to "Trelloに登録", home_input_path(isbn: data[:isbn]), remote: true, class:'entry_button' %>
                 </div>
             <% end %>
         </div>

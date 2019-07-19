@@ -1,0 +1,6 @@
+<div id="select_items">
+    <%= select_tag(:list, options_for_select(@list_data, @list_id), \
+        class: "select_list") %>
+    <%= select_tag(:label, options_for_select(@label_data, @label_id), \
+        class: "select_list") %>
+</div>

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'login', to: 'login#index'
   post 'login', to: 'login#create'
   get 'home/input', to: 'home#input'
+  post 'home/input', to: 'home#get_item'
   post 'entry', to: 'entry#trello_entry'
   root 'home#index'
 

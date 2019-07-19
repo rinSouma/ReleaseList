@@ -38,6 +38,79 @@ class HomeController < ApplicationController
     end
 
     def input
+        @isbn = params[:isbn]
+        @data = List.find_by(isbn: params[:isbn])
+        trello = Trello_API.new(session[:token], ENV['TRELLO_API_KEY'])
+        board_list = trello.get_boards
+        @board_data = {}
+        board_list.each do | data |
+            @board_data[data[:name].to_sym] = data[:id]
+        end
+        #前回値情報を取得する
+        if session[:input_time].present? then
+            @input_time = session[:input_time]
+        else
+            @input_time = "T12:00:00"
+        end
+        if params[:board_id].present? then
+            @board_id = params[:board_id]
+        elsif session[:board_id].present? then
+            @board_id = session[:board_id]
+        else
+            @board_id = board_list[0][:id]
+        end
+
+        list_list = trello.get_lists(@board_id)
+        @list_data = {}
+        list_list.each do | data |
+            @list_data[data[:name].to_sym] = data[:id]
+        end
+        if session[:list_id].present? then
+            @list_id = session[:list_id]
+        else
+            @list_id = list_list[0][:id]
+        end
+
+        label_list = trello.get_labels(@board_id)
+        @label_data = {}
+        label_list.each do | data |
+            @label_data[data[:name].to_sym] = data[:id]
+        end
+        if session[:label_id].present? then
+            @label_id = session[:label_id]
+        else
+            @label_id = label_list[0][:id]
+        end
+    end
+
+    def get_item
+        trello = Trello_API.new(session[:token], ENV['TRELLO_API_KEY'])
+        @board_id = params[:board_id]
+        list_list = trello.get_lists(@board_id)
+        @list_data = {}
+        list_list.each do | data |
+            @list_data[data[:name].to_sym] = data[:id]
+        end
+        if session[:list_id].present? then
+            @list_id = session[:list_id]
+        else
+            if list_list[0].present? then
+                @list_id = list_list[0][:id]
+            end
+        end
+
+        label_list = trello.get_labels(@board_id)
+        @label_data = {}
+        label_list.each do | data |
+            @label_data[data[:name].to_sym] = data[:id]
+        end
+        if session[:label_id].present? then
+            @label_id = session[:label_id]
+        else
+            if label_list[0].present? then
+                @label_id = label_list[0][:id]
+            end
+        end
 
     end
 end

@@ -7,8 +7,19 @@
             </button>
         </div>
         <div class="modal-body">
+            <%= form_tag(home_input_path, enforce_utf8: false, method:'get', remote: 'true', class:"sort_form") do %>
+                <%= select_tag(:board, options_for_select(@board_data, @board_id), \
+                    class: "select_list", onchange: "get_lists();") %>
+                <%= hidden_field_tag(:isbn, @isbn) %>
+            <% end %>
             <%= form_tag(entry_path, method: :post) do %>
-                <%= text_field :title, class: "hogehoge" %>
+                <div class="input_form">
+                    <%= render :partial => 'item_lists' %>
+                    <%= text_field_tag :title, @data[:title], class: "input_text"  %>
+                    <%= text_area_tag :desc, @data[:auther], class: "input_textarea"  %>
+                    <% datetime = @data[:release_date].to_s + @input_time.to_s %>
+                    <%= datetime_local_field_tag :due , datetime, class: "input_date" %>
+                </div>
                 <%= submit_tag "登録" %>
             <% end %>
         </div>

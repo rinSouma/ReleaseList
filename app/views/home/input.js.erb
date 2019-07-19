@@ -1,2 +1,14 @@
 $("#user-modal").html("<%= escape_javascript(render 'input') %>")
 $("#user-modal").modal("show")
+
+function get_lists(){
+    var id = $('[name=board]').val();
+    $.ajax({
+        url: "/release_list/home/input",
+        type: "POST",
+        data: 'board_id=' + id,
+        beforeSend: function(xhr) {
+          xhr.setRequestHeader("X-CSRF-Token", $('meta[name="csrf-token"]').attr('content'))
+        }
+    })
+} 
