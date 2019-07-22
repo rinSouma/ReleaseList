@@ -1,26 +1,30 @@
 <div class="modal-dialog" role="document">
     <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title">New User</h5>
+            <h5 class="modal-title">Trelloに登録</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
         <div class="modal-body">
-            <%= form_tag(home_input_path, enforce_utf8: false, method:'get', remote: 'true', class:"sort_form") do %>
+            <%= form_tag(home_input_path, enforce_utf8: false, method:'get', remote: 'true', class:"") do %>
+                <div class="input_title">ボードを選択</div>
                 <%= select_tag(:board, options_for_select(@board_data, @board_id), \
-                    class: "select_list", onchange: "get_lists();") %>
+                    class: "select_trello input_area", onchange: "get_lists();") %>
                 <%= hidden_field_tag(:isbn, @isbn) %>
             <% end %>
             <%= form_tag(entry_path, method: :post) do %>
                 <div class="input_form">
                     <%= render :partial => 'item_lists' %>
-                    <%= text_field_tag :title, @data[:title], class: "input_text"  %>
-                    <%= text_area_tag :desc, @data[:auther], class: "input_textarea"  %>
+                    <div class="input_title">タイトルを入力</div>
+                    <%= text_field_tag :title, @data[:title], class: "input_text input_area"  %>
+                    <div class="input_title">説明を入力(省略可)</div>
+                    <%= text_area_tag :desc, @data[:auther], class: "input_textarea input_area"  %>
+                    <div class="input_title">期限を設定</div>
                     <% datetime = @data[:release_date].to_s + @input_time.to_s %>
-                    <%= datetime_local_field_tag :due , datetime, class: "input_date" %>
+                    <%= datetime_local_field_tag :due , datetime, class: "input_date input_area" %>
                 </div>
-                <%= submit_tag "登録" %>
+                <%= submit_tag "登 録", class: "submit_button" %>
             <% end %>
         </div>
     </div>

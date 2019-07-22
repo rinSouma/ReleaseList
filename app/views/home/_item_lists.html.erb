@@ -1,6 +1,8 @@
 <div id="select_items">
+    <div class="input_title">リストを選択</div>
     <%= select_tag(:list, options_for_select(@list_data, @list_id), \
-        class: "select_list") %>
+        class: "select_trello input_area") %>
+    <div class="input_title">ラベルを選択</div>
     <%= select_tag(:label, options_for_select(@label_data, @label_id), \
-        class: "select_list") %>
+        class: "select_trello input_area") %>
 </div>

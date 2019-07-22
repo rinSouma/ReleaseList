@@ -163,3 +163,48 @@ div {
     text-align: center;
     margin-top: 4px;
 }
+.select_trello{
+	padding:4px 4px 6px 4px;
+	background-color:#FFFFFF;
+	color:#000000;
+	border:none;
+	border-radius: 6px;
+    width:200px;
+}
+.modal-content{
+    background-color: #0079bf;
+}
+.close{
+    color: #FFFFFF;
+}
+.input_title{
+    margin-left:4px;
+}
+.input_area{
+    margin-bottom: 10px;
+}
+.input_text{
+    width: 460px;
+    padding:1px;
+}
+.input_textarea{
+    width: 460px;
+    padding:1px;
+	height:8em;
+}
+.input_date{
+    padding:1px;
+}
+.submit_button{
+    width:100px;
+    background-color: #4d95be;
+    border: none;
+    border-radius: 6px;
+    padding:6px;
+    text-align: center;
+    margin: 10px 0px;
+    color: #FFFFFF;
+}
+.submit_button:hover{
+    background-color: #66a4c7;
+}
