@@ -24,7 +24,7 @@
                     <% datetime = @data[:release_date].to_s + @input_time.to_s %>
                     <%= datetime_local_field_tag :due , datetime, class: "input_date input_area" %>
                 </div>
-                <%= submit_tag "登 録", class: "submit_button" %>
+                <%= submit_tag "登 録", class: "submit_button", data: { disable_with: '登録中...' } %>
             <% end %>
         </div>
     </div>
