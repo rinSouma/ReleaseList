@@ -52,9 +52,8 @@ class HomeController < ApplicationController
         else
             @input_time = "T12:00:00"
         end
-        if params[:board_id].present? then
-            @board_id = params[:board_id]
-        elsif session[:board_id].present? then
+        puts session[:board_id]
+        if session[:board_id].present? then
             @board_id = session[:board_id]
         else
             @board_id = board_list[0][:id]
@@ -73,13 +72,14 @@ class HomeController < ApplicationController
 
         label_list = trello.get_labels(@board_id)
         @label_data = {}
+        @label_data["ラベルを使用しない"] = ""
         label_list.each do | data |
             @label_data[data[:name].to_sym] = data[:id]
         end
         if session[:label_id].present? then
             @label_id = session[:label_id]
         else
-            @label_id = label_list[0][:id]
+            @label_id = ""
         end
     end
 
@@ -101,16 +101,14 @@ class HomeController < ApplicationController
 
         label_list = trello.get_labels(@board_id)
         @label_data = {}
+        @label_data["ラベルを使用しない"] = ""
         label_list.each do | data |
             @label_data[data[:name].to_sym] = data[:id]
         end
         if session[:label_id].present? then
             @label_id = session[:label_id]
         else
-            if label_list[0].present? then
-                @label_id = label_list[0][:id]
-            end
+            @label_id = ""
         end
-
     end
 end

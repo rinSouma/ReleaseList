@@ -1,0 +1,6 @@
+<% if @status == 'success' %>
+    alert('登録しました');
+    $("#user-modal").modal("hide");
+<% else %>
+    alert('登録時にエラーが発生しました');
+<% end %>

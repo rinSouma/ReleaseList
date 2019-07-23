@@ -13,7 +13,7 @@
                     class: "select_trello input_area", onchange: "get_lists();") %>
                 <%= hidden_field_tag(:isbn, @isbn) %>
             <% end %>
-            <%= form_tag(entry_path, method: :post) do %>
+            <%= form_tag(entry_path, method: :post, remote: 'true') do %>
                 <div class="input_form">
                     <%= render :partial => 'item_lists' %>
                     <div class="input_title">タイトルを入力</div>

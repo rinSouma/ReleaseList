@@ -1,4 +1,5 @@
 <div id="select_items">
+    <%= hidden_field_tag(:board_id, @board_id) %>
     <div class="input_title">リストを選択</div>
     <%= select_tag(:list, options_for_select(@list_data, @list_id), \
         class: "select_trello input_area") %>
