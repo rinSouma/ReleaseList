@@ -18,6 +18,12 @@ module Api
           genre = params[:genre]
 
           ####悪用防止のための認証処理が必要####
+          if api_key != ENV['RELEASE_LIST_API_KEY'] then
+            render status: 200, json: { status: 1, message: "Authentication error" }
+            logger.debug("Authentication error")
+            return
+          end
+
           #パラメタチェック
           if genre.blank? then
             render status: 200, json: { status: 1, message: "genre is not set" }

@@ -3,10 +3,10 @@ https://books.rakuten.co.jp/event/book/comic/calendar/2019/06/js/booklist.json
 小説
 https://books.rakuten.co.jp/event/book/pocket-book/calendar/js/booklist.json
 
-curl -XPOST -d 'genre=0' https://localhost:3001/release_list/api/v1/insert -k
-curl -XPOST -d 'genre=0&year=2019&month=6' https://localhost:3001/release_list/api/v1/insert -k
-curl -XPOST -d 'genre=1' https://localhost:3001/release_list/api/v1/insert -k
-curl -XPOST -d 'genre=1&year=2019&month=6' https://localhost:3001/release_list/api/v1/insert -k
+curl -XPOST -d 'api_key=test_api_key&genre=0' https://localhost:3001/release_list/api/v1/insert -k
+curl -XPOST -d 'api_key=test_api_key&genre=0&year=2019&month=6' https://localhost:3001/release_list/api/v1/insert -k
+curl -XPOST -d 'api_key=test_api_key&genre=1' https://localhost:3001/release_list/api/v1/insert -k
+curl -XPOST -d 'api_key=test_api_key&genre=1&year=2019&month=6' https://localhost:3001/release_list/api/v1/insert -k
 
 
 https://trello.com/1/authorize?expiration=never&name=ReleaseList&scope=read,write&response_type=token&return_url=http://localhost/test/test.cgi&key={YourAPIKey}    
@@ -14,6 +14,7 @@ https://trello.com/1/authorize?expiration=never&name=ReleaseList&scope=read,writ
 #開発環境起動
 $env:TRELLO_API_KEY = "<APIキー>"
 $env:RAILS_RELATIVE_URL_ROOT = "/release_list"
+$env:RELEASE_LIST_API_KEY = "test_api_key"
 thin --prefix /release_list --port 3001 --ssl start
 
 gem uninstall -I eventmachine
