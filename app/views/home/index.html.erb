@@ -39,8 +39,11 @@
                 <div class="book_title">
                     <%= data[:title] %>
                 </div>
+                <div class="book_label">
+                    <%= data[:label_name].to_s%>
+                </div>
                 <div class="book_auther">
-                    <%= data[:auther]%>
+                    <%= data[:auther].to_s%>
                 </div>
             </div>
             <% if @user.present? then %>
