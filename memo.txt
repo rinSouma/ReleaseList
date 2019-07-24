@@ -15,7 +15,7 @@ https://trello.com/1/authorize?expiration=never&name=ReleaseList&scope=read,writ
 $env:TRELLO_API_KEY = "<APIキー>"
 $env:RAILS_RELATIVE_URL_ROOT = "/trellu_list"
 $env:RELEASE_LIST_API_KEY = "test_api_key"
-thin --prefix /release_list --port 3001 --ssl start
+thin --prefix /trellu_list --port 3001 --ssl start
 
 gem uninstall -I eventmachine
 gem install eventmachine --platform ruby
