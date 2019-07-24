@@ -60,7 +60,6 @@ div {
 }
 
 .contents{
-    width:1000px;
     margin: 0 auto;
 }
 
@@ -68,46 +67,43 @@ div {
     position: sticky;
     top:0;
     height: auto;
-    width:1000px;
     overflow: hidden;
     background-color: #0067a3;
     padding:10px 20px;
 }
 .app_logo{
-    width: 300px;
     height: 60px;
     display:inline-block;
 }
 .login_area{
     float: right;
-    width: 600px;
-    height: 60px;
+    height: auto;
     text-align: right;
 }
 .login_button{
     position: absolute;
-    right: 20px;
     width:140px;
+    right: 20px;
     text-align: center;
 }
 .icon_img{
+    vertical-align: top;
     height: 40px;
     border-radius: 10px;
 }
 .user_name{
     display: inline-block;
-    max-width:400px;
     text-align: left;
     margin-left: 10px;
 }
 .footer{
     height: auto;
-    width: 100%;
     overflow: hidden;
     background-color: #0067a3;
     padding:10px 20px;
     text-align: center;
     font-size: 12px;
+    width: 100%;
 }
 .footer a{
     display: inline;
@@ -117,7 +113,6 @@ div {
     padding:0px 20px 10px 20px;
     position: fixed;
     height: auto;
-    width: 1000px;
     overflow: hidden;
     background-color:#0067a3;
 }
@@ -128,16 +123,14 @@ div {
 	color:#000000;
 	border:none;
 	border-radius: 6px;
-	width:80px;
+    width:80px;
 }
 .view_area{
     margin-top:42px;
-    width:1000px;
     padding-top:1px;
     background-color: #66a4c7;
 }
 .view_list{
-    width: 1000px;
     padding: 10px;
     color: #000000;
 }
@@ -149,7 +142,6 @@ div {
 }
 .book{
     display: inline-block;
-    width: 800px;
 }
 .book1{
     background-color: #FFFFFF;
@@ -158,18 +150,18 @@ div {
     background-color: #EEEEF8;
 }
 .book_button{
-    width:100px;
     float: right;
     text-align: center;
     margin-top: 4px;
+    width:100px;
 }
 .select_trello{
+    width:200px;
 	padding:4px 4px 6px 4px;
 	background-color:#FFFFFF;
 	color:#000000;
 	border:none;
 	border-radius: 6px;
-    width:200px;
 }
 .modal-content{
     background-color: #0079bf;
@@ -184,11 +176,9 @@ div {
     margin-bottom: 10px;
 }
 .input_text{
-    width: 460px;
     padding:1px;
 }
 .input_textarea{
-    width: 460px;
     padding:1px;
 	height:8em;
 }
@@ -207,4 +197,84 @@ div {
 }
 .submit_button:hover{
     background-color: #66a4c7;
+}
+
+@media screen and (min-width: 1001px){
+	.contents{
+	    width:1000px;
+	}
+	.header{
+	    width:1000px;
+	}
+	.app_logo{
+	    width: 300px;
+	}
+	.login_area{
+	    width: 600px;
+	}
+	.user_name{
+	    max-width:400px;
+	}
+	.select_area{
+	    width: 1000px;
+	}
+	.view_area{
+	    width:1000px;
+	}
+	.view_list{
+	    width: 1000px;
+	}
+	.book{
+	    width: 800px;
+	}
+	.input_text{
+	    width: 460px;
+	}
+	.input_textarea{
+	    width: 460px;
+	}
+}
+@media screen and (max-width: 1000px){
+	.contents{
+	    width:100%;
+	}
+	.header{
+	    width:100%;
+	}
+	.app_logo{
+	    width: 30%;
+	}
+	.login_area{
+	    width: 60%;
+	}
+	.user_name{
+	    max-width:70%;
+	}
+	.select_area{
+	    width: 100%;
+	}
+	.view_area{
+	    width:100%;
+	}
+	.view_list{
+	    width: 100%;
+	}
+	.book{
+	    width: 70%;
+	}
+	.input_text{
+	    width: 100%;
+	}
+	.input_textarea{
+	    width: 100%;
+	}
+}
+@media screen and (max-width: 360px){
+	.book{
+	    width: 60% !important;
+	}
+    .select_list{
+        margin-right:6px !important;
+        width:74px !important;
+    }
 }
