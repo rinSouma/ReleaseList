@@ -89,6 +89,16 @@ div {
     right: 20px;
     text-align: center;
 }
+.logout_button{
+    font-size: 10px;
+    background-color: inherit;
+    text-decoration: underline !important;
+}
+.logout_button:hover {
+    background-color: inherit;
+    text-decoration: underline !important;
+}
+
 .icon_img{
     vertical-align: top;
     height: 40px;
@@ -187,6 +197,7 @@ div {
 }
 .input_date{
     padding:1px;
+    background-color: #FFFFFF;
 }
 .submit_button{
     width:100px;
@@ -201,6 +212,37 @@ div {
 .submit_button:hover{
     background-color: #66a4c7;
 }
+.affi{
+    background-color: #0067a3;
+    border-bottom: solid 1px #FFFFFF;
+}
+.sponsored{
+    font-size:10px;
+    text-align: center;
+    color: #FFFFFF;
+}
+.affi_area{
+    margin: 0 auto;
+    overflow: hidden;
+    height: auto;
+    width: 430px;
+}
+.affi_contents{
+    float: left;
+    width: 200px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.affi_link{
+    background-color: inherit;
+}
+.affi_link:hover{
+    background-color: inherit;
+}
+.affi_img{
+    text-align: center;
+}
+
 
 @media screen and (min-width: 1001px){
 	.contents{
@@ -279,5 +321,10 @@ div {
     .select_list{
         margin-right:6px !important;
         width:74px !important;
+    }
+}
+@media screen and (max-width: 600px){
+    .affi_area{
+        width: 100%;
     }
 }

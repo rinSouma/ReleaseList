@@ -19,7 +19,7 @@
                     <div class="input_title">タイトルを入力</div>
                     <%= text_field_tag :title, @data[:title], class: "input_text input_area"  %>
                     <div class="input_title">説明を入力(省略可)</div>
-                    <%= text_area_tag :desc, @data[:auther], class: "input_textarea input_area"  %>
+                    <%= text_area_tag :desc, "", class: "input_textarea input_area"  %>
                     <div class="input_title">期限を設定</div>
                     <% datetime = @data[:release_date].to_s + @input_time.to_s %>
                     <%= datetime_local_field_tag :due , datetime, class: "input_date input_area" %>

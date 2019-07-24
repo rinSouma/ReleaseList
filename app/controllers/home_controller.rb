@@ -35,6 +35,8 @@ class HomeController < ApplicationController
         @lists = List.where(:genre => @genre_key, \
                             :release_date=>now.beginning_of_month..now.end_of_month)\
                             .order(:release_date, {decision_flg: :desc})
+
+        @affi = Affiliate.all.order("RANDOM()")
     end
 
     def input

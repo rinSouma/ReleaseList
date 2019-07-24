@@ -54,5 +54,28 @@
         </div>
     <% index += 1 %>
     <% end %>
+
+	<% if @affi %>
+		<div class="view_list affi">
+			<div class="sponsored">スポンサードリンク</div>
+            <div class="affi_area">
+            <% i = 1 %>
+            <% @affi.each do |affi_data| %>
+                <div class="affi_contents">
+        			<%= link_to(affi_data.affiliateUrl, class:'affi_link', target:'_blank') do%>
+	        			<div class="affi_img">
+		        			<%= image_tag affi_data.mediumImageUrls %>
+			        	</div>
+				        <div class="affi_title">
+					        <%= affi_data.itemName %>
+        				</div>
+                    <% end %>
+		    	</div>
+                <% i = i + 1 %>
+                <% break if i > 2 %>
+            <% end %>
+            </div>
+		</div>
+	<% end %>
     <div id="user-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
 </div>

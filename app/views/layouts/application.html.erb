@@ -19,13 +19,14 @@
           <% if @user.blank? %>
             <%= link_to "Trelloにログイン", login_path(), class:'login_button' %>
           <% else %>
-            <%= image_tag(@user[:avatar], class: 'icon_img') %> <div class="user_name"><%= @user[:user_name] %>さん</div>
+            <%= image_tag(@user[:avatar], class: 'icon_img') %> <div class="user_name"><%= @user[:user_name] %>さん
+                <div class="logout_area"><%= link_to "ログアウト", logout_path(), class: 'logout_button' %></div></div>
           <% end %>
         </div>
       </div>
       <%= yield %>
       <div class="footer">
-        <div class="copyright">Release List © 2019 <a href="https://twitter.com/rin_souma">@rin_souma</a> </div>
+        <div class="copyright">Trellu List © 2019 <a href="https://twitter.com/rin_souma">@rin_souma</a> </div>
       </div>
     </div>
   </body>

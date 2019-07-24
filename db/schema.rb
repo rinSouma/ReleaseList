@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190628090432) do
+ActiveRecord::Schema.define(version: 20190724180304) do
+
+  create_table "affiliates", force: :cascade do |t|
+    t.string "itemName"
+    t.string "catchcopy"
+    t.string "itemCode"
+    t.string "itemPrice"
+    t.string "itemCaption"
+    t.string "itemUrl"
+    t.string "affiliateUrl"
+    t.string "smallImageUrls"
+    t.string "mediumImageUrls"
+    t.string "taxFlag"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "lists", id: :string, force: :cascade do |t|
     t.integer "genre"
