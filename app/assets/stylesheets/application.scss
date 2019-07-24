@@ -72,8 +72,11 @@ div {
     padding:10px 20px;
 }
 .app_logo{
-    height: 60px;
+    height: 40px;
     display:inline-block;
+    background-image: image-url("trellu_icon.png");
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 .login_area{
     float: right;
@@ -242,10 +245,10 @@ div {
 	    width:100%;
 	}
 	.app_logo{
-	    width: 30%;
+	    width: 40%;
 	}
 	.login_area{
-	    width: 60%;
+	    width: 59%;
 	}
 	.user_name{
 	    max-width:70%;

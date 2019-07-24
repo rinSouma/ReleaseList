@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ReleaseList</title>
+    <title>Trellu List</title>
+    <%= favicon_link_tag('favicon.ico') %>
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="書籍発売一覧からTrelloに購入予定品を登録できるシステム" />
@@ -13,7 +14,7 @@
   <body>
     <div class="contents">
       <div class="header">
-        <div class="app_logo">Release List</div>
+        <div class="app_logo"></div>
         <div class="login_area">
           <% if @user.blank? %>
             <%= link_to "Trelloにログイン", login_path(), class:'login_button' %>
