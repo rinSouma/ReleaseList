@@ -2,11 +2,19 @@
 <html>
   <head>
     <title>Trellu List</title>
-    <%= favicon_link_tag('favicon.ico') %>
     <%= csrf_meta_tags %>
+    <%= favicon_link_tag('favicon.ico') %>
+  	<%= analytics_init if Rails.env.production? %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="書籍発売一覧からTrelloに購入予定品を登録できるシステム" />
 
+  	<meta name="twitter:card" content="summary_large_image" /> 
+	  <meta name="twitter:site" content="@rin_souma" /> 
+	  <meta property="og:url" content="https://smrin.net/trellu_list" /> 
+	  <meta property="og:title" content="Trellu List" /> 
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta property="og:description" content="書籍発売一覧からTrelloに購入予定品を登録できるシステム" /> 
+		<meta property="og:image" content="<%= asset_url('trellu_icon.png') %>" />
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
