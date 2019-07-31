@@ -168,10 +168,16 @@ div {
     text-align: right;
 }
 .book_button{
-    display: inline-block;
+    clear: both;
+    display: block;
+    float: right;
+    height: 40px;
     text-align: center;
     margin-top: 4px;
-    width:120px;
+    width:100px;
+}
+.entry_button{
+    font-size: 12px;
 }
 .select_trello{
     width:200px;
@@ -317,8 +323,6 @@ div {
 	}
     .button_area{
         width: 28%;
-        min-width: 122px;
-        max-width: 239px;
     }
 	.input_text{
 	    width: 100%;
@@ -327,7 +331,7 @@ div {
 	    width: 100%;
 	}
 }
-@media screen and (max-width: 450px){
+@media screen and (max-width: 400px){
 	.book{
 	    width: 60% !important;
 	}
