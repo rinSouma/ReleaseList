@@ -46,11 +46,17 @@
                     <%= data[:auther].to_s%>
                 </div>
             </div>
-            <% if @user.present? then %>
+            <div class="button_area">
+                <% if @user.present? then %>
+                    <div class="book_button">
+                        <%= link_to "Trelloに登録", home_input_path(isbn: data[:isbn]), remote: true, class:'entry_button' %>
+                    </div>
+                <% end %>
+                <% amazon_url = "https://www.amazon.co.jp/s?k=" + data[:title] %>
                 <div class="book_button">
-                    <%= link_to "Trelloに登録", home_input_path(isbn: data[:isbn]), remote: true, class:'entry_button' %>
+                    <%= link_to "Amazonで検索", amazon_url, target: :_blank, class:'entry_button' %>
                 </div>
-            <% end %>
+            </div>
         </div>
     <% index += 1 %>
     <% end %>
