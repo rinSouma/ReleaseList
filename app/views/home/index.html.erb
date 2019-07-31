@@ -50,6 +50,7 @@
                 <% if @user.present? then %>
                     <div class="book_button">
                         <%= link_to "Trelloに登録", home_input_path(isbn: data[:isbn]), remote: true, class:'entry_button' %>
+                        <br />
                     </div>
                 <% end %>
                 <% amazon_url = "https://www.amazon.co.jp/s?k=" + data[:title] %>
