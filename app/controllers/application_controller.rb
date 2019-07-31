@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include Trello
+  $amazon = "https://www.amazon.co.jp/s?k="
 
   def getUser
     if session[:token].blank?
