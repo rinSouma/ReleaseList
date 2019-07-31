@@ -53,7 +53,7 @@
                         <br />
                     </div>
                 <% end %>
-                <% amazon_url = "https://www.amazon.co.jp/s?k=" + data[:title] %>
+                <% amazon_url = "https://www.amazon.co.jp/s?k=" + data[:isbn] %>
                 <div class="book_button">
                     <%= link_to "Amazonで検索", amazon_url, target: :_blank, class:'entry_button' %>
                 </div>

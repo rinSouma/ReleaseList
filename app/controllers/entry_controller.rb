@@ -16,6 +16,11 @@ class EntryController < ApplicationController
             session[:list_id] = params[:list]
             session[:label_id] = params[:label]
             session[:input_time] = get_time(params[:due])
+            if params[:desc].include?($amazon) then
+                session[:desc_flg] = true
+            else
+                session[:desc_flg] = false
+            end
         else
             @status = "failed"
         end

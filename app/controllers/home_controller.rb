@@ -42,6 +42,11 @@ class HomeController < ApplicationController
     def input
         @isbn = params[:isbn]
         @data = List.find_by(isbn: params[:isbn])
+        if session[:desc_flg].nil? then
+            @amazon_flg = true
+        else
+            @amazon_flg = session[:desc_flg]
+        end
         trello = Trello_API.new(session[:token], ENV['TRELLO_API_KEY'])
         board_list = trello.get_boards
         @board_data = {}
