@@ -11,7 +11,7 @@ gem 'rails', '~> 5.1.7'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~>1.4.1'
 # Use Puma as the app server
-gem 'puma', '~> 3.7'
+#gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -67,3 +67,8 @@ platforms :ruby do
   gem 'unicorn'
 end
 
+#alert
+gem 'nokogiri', '>= 1.10.4'
+gem 'puma', '>= 3.12.2'
+gem 'loofah', '>= 2.3.1'
+gem 'rack', '>= 2.0.8'
