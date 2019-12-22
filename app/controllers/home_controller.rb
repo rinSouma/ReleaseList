@@ -14,7 +14,7 @@ class HomeController < ApplicationController
         max_year = max.year
         min_year = min.year
         @year_data = {}
-        for y in max_year..min_year do
+        for y in max_year.downto(min_year) do
             @year_data[y.to_s+"年"] = y
         end
         @year_key = params[:year]
