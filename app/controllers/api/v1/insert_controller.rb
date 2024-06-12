@@ -67,6 +67,12 @@ module Api
 
       def getDateByJson(p_year, target_date)
         #発売日をDate型に変換
+        #なんか日付のフォーマット変わって落ちてきたので対応
+        if target_date.include?("/") then
+          y, m, d = target_date.split('/')
+          target_date = m.to_s + "月" + d.to_s
+        end
+        
         decision_flg = 1
         if p_year.present? then
           target_date, decision_flg = getDate(p_year, target_date)
