@@ -70,7 +70,7 @@ module Api
         #なんか日付のフォーマット変わって落ちてきたので対応
         if target_date.include?("/") then
           y, m, d = target_date.split('/')
-          target_date = m.to_s + "月" + d.to_s
+          target_date = m.to_s + "月" + d.to_s + "日"
         end
         
         decision_flg = 1
